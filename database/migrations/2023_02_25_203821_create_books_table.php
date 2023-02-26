@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description')->nullable();
-            $table->integer('book_number');
+            $table->text('description')->nullable();
+            $table->bigInteger('book_number')->unique();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
